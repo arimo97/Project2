@@ -1,0 +1,114 @@
+create or replace PACKAGE BODY PKG_COVIDCOMMENT AS
+
+PROCEDURE  PROC_COMMENT_ALL_LIST    (
+        O_CUR    OUT  SYS_REFCURSOR) AS
+  BEGIN
+    OPEN   O_CUR  FOR
+    SELECT CNUM, BNUM, CTEXT, ID,
+               TO_CHAR(CREGDATE, 'YYYY-MM-DD hh24:mi:ss')   CREGDATE,
+               TO_CHAR(CUPDATE,  'YYYY-MM-DD hh24:mi:ss')    CUPDATE,
+               TO_CHAR(CDELETE,  'YYYY-MM-DD hh24:mi:ss')    CDELETE,
+               NICKNAME
+
+    FROM  COVIDCOMMENT
+    ORDER BY CNUM DESC;
+  END PROC_COMMENT_ALL_LIST;
+
+--해당 게시물 댓글 LIST-------------------------------
+
+  PROCEDURE  PROC_COMMENT_LIST    (
+        IN_BNUM  IN   NUMBER,
+        O_CUR    OUT  SYS_REFCURSOR) AS
+  BEGIN
+    OPEN   O_CUR  FOR
+    SELECT CNUM, BNUM, CTEXT, ID,
+               TO_CHAR(CREGDATE, 'YYYY-MM-DD hh24:mi:ss')   CREGDATE,
+               TO_CHAR(CUPDATE,  'YYYY-MM-DD hh24:mi:ss')    CUPDATE,
+               TO_CHAR(CDELETE,  'YYYY-MM-DD hh24:mi:ss')    CDELETE,
+               NICKNAME
+
+    FROM  COVIDCOMMENT
+    WHERE BNUM = IN_BNUM
+    ORDER BY CNUM DESC;
+  END PROC_COMMENT_LIST;
+
+--INSERT----------------------------------------
+
+  PROCEDURE  PROC_COMMENT_INSERT( 
+        IN_BNUM     IN   NUMBER,
+        IN_CTEXT    IN   VARCHAR2,
+        IN_ID       IN   VARCHAR2,
+        IN_NICKNAME IN   VARCHAR2
+   ) AS
+   V_CNUM   NUMBER(10,0);
+  BEGIN
+    -- 전체글의 글번호
+     SELECT   NVL( MAX(CNUM), 0 ) + 1
+      INTO    V_CNUM
+      FROM    COVIDCOMMENT;
+      
+    INSERT INTO COVIDCOMMENT (
+    CNUM,
+    BNUM,
+    CTEXT,
+    ID,
+    CREGDATE,
+    CUPDATE,
+    CDELETE,
+    NICKNAME
+) VALUES (
+    V_CNUM,
+    IN_BNUM,
+    IN_CTEXT,
+    IN_ID,
+    SYSDATE,
+    SYSDATE,
+    SYSDATE,
+    IN_NICKNAME
+);
+
+COMMIT;
+  END PROC_COMMENT_INSERT;
+
+  
+
+  PROCEDURE  PROC_COMMENT_GET    (
+        IN_CNUM  IN   NUMBER,
+        O_CUR    OUT  SYS_REFCURSOR) AS
+  BEGIN
+    OPEN   O_CUR  FOR
+    SELECT CNUM, BNUM, CTEXT, ID,
+               TO_CHAR(CREGDATE, 'YYYY-MM-DD hh24:mi:ss')   CREGDATE,
+               TO_CHAR(CUPDATE,  'YYYY-MM-DD hh24:mi:ss')    CUPDATE,
+               TO_CHAR(CDELETE,  'YYYY-MM-DD hh24:mi:ss')    CDELETE,
+               NICKNAME
+
+    FROM  COVIDCOMMENT
+    WHERE CNUM = IN_CNUM;
+  END PROC_COMMENT_GET;
+
+---update-----------------------------------
+
+  PROCEDURE  PROC_COMMENT_UPDATE(
+    IN_CTEXT  IN  VARCHAR2,
+    IN_CNUM   IN  NUMBER  
+    ) AS
+  BEGIN
+    UPDATE COVIDCOMMENT
+    SET    CTEXT  = IN_CTEXT
+    WHERE  CNUM   = IN_CNUM;
+    COMMIT;
+  END PROC_COMMENT_UPDATE;
+
+-- DELETE-----------------------------
+
+  PROCEDURE  PROC_COMMENT_DELETE(
+    IN_CNUM   IN  NUMBER
+    ) AS
+  BEGIN
+    DELETE COVIDCOMMENT
+    WHERE  CNUM = IN_CNUM;
+    COMMIT;
+  END PROC_COMMENT_DELETE;
+
+END PKG_COVIDCOMMENT;

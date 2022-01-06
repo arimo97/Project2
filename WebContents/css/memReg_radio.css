@@ -1,0 +1,36 @@
+@charset "UTF-8";
+	.radio2 + label{
+    position: relative;
+}
+.radio input[type="radio"].radio2{
+    display: none;
+}
+
+.radio input[type="radio"].radio2 + label:before { /* 체크박스 배경 */
+    display: inline-block;
+    content: '';
+    width: 1.5em; 
+    height: 1.5em;
+    border: 2px solid #0BA4E0;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 15px -6px 4px;
+}
+
+.radio input[type="radio"].radio2 + label:after { /* 체크 마크 */
+    position: absolute;
+    left: 4px;
+    content: '✔'; /* 체크 마크 ASCii 문자 */
+    font-size: 1.2em;
+    line-height: 1.0;
+    color: #0BA4E0;
+    transition: all .3s;
+}
+[type="radio"].radio2 + label:after { /* 기본 상태 - 투명에 크기 0 */
+    opacity: 0;
+    transform: scale(0);
+}
+[type="radio"]:checked.radio2 + label:after { /* 체크 상태 - 불투명에 크기 1 */
+    opacity: 1;
+    transform: scale(1);
+}

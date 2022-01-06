@@ -1,0 +1,67 @@
+menulist
+index --> MBoard(servlet) --> Action --> ActionFactory --> MenuActionList --> MenuDao --> menulist.jsp
+
+메뉴추가
+menulist.jsp-->MBoard(servlet) --> Action --> ActionFactory -->MenuActionWriteForm.java -->
+menuwrite.jsp()--> MBoard(servlet)--> Action --> ActionFactory
+-->MenuActionWrite.java --> MenuDao.java(menuInsert)
+
+삭제
+menulist.jsp-->MBoard(servlet) --> Action --> ActionFactory-->
+MenuDelete.java--> MenuDao.java(menuDelete)
+
+수정
+menulist.jsp[<a href="/mboard?cmd=MENUUPDATEFORM&menu_id=${ menu.menu_id }">]-->MBoard(servlet) --> 
+Action --> ActionFactory -->MenuActionUpdateForm.java -->
+menuupdate.jsp()--> MBoard(servlet)--> Action --> ActionFactory
+-->MenuActionUpdate.java --> MenuDao.java(menuUpdate)
+게시판
+index.jsp-->MBoard(servlet) --> Action --> ActionFactory--> BoardActionList --> menuDao[getMenuList] 
+--> boardDao[getBoardList] -->  "/view/list.jsp"
+
+----------------------------------------------------------------------
+사회적거리두기
+topnav.jsp --> MBoard(servlet) --> Action -->ActionFactory --> CoronaDistanceAction 
+-->  CoronaDistance.jsp
+
+ 예방접종통계
+topnav.jsp --> MBoard(servlet) --> Action --> ActionFactory --> VaccineStaticsAction
+ --> VaccineStaticsDao --> VaccineStatics.jsp
+
+홈화면
+topnav.jsp[/mboard?cmd=HOME] --> MBoard(servlet) --> Action -->ActionFactory --> HomeAction[home/jsp] 
+-->  Home.jsp
+
+
+로그인
+login.jsp --> MBoard(servlet) --> Action --> ActionFactory --> LoginAction 
+--> LoginDao --> Home.jsp
+
+
+index.jsp
+index.jsp 로그인(form)주기 --> home
+ 
+ 
+ {"currentCount":18,"data":[{"accumulatedFirstCnt":41826486,"accumulatedSecondCnt":39849263,"accumulatedThirdCnt":843978,"baseDate":"2021-11-13 00:00:00","firstCnt":78120,"id":4453,"secondCnt":148147,"sido":"전국","thirdCnt":141936,"totalFirstCnt":41904606,"totalSecondCnt":39997410,"totalThirdCnt":985914},{"accumulatedFirstCnt":7804300,"accumulatedSecondCnt":7471369,"accumulatedThirdCnt":169483,"baseDate":"2021-11-13 00:00:00","firstCnt":12490,"id":4454,"secondCnt":24597,"sido":"서울특별시","thirdCnt":26844,"totalFirstCnt":7816790,"totalSecondCnt":7495966,"totalThirdCnt":196327},{"accumulatedFirstCnt":2678415,"accumulatedSecondCnt":2555104,"accumulatedThirdCnt":41138,"baseDate":"2021-11-13 00:00:00","firstCnt":4450,"id":4455,"secondCnt":9538,"sido":"부산광역시","thirdCnt":6959,"totalFirstCnt":2682865,"totalSecondCnt":2564642,"totalThirdCnt":48097},{"accumulatedFirstCnt":1863670,"accumulatedSecondCnt":1771327,"accumulatedThirdCnt":26799,"baseDate":"2021-11-13 00:00:00","firstCnt":3155,"id":4456,"secondCnt":6880,"sido":"대구광역시","thirdCnt":5237,"totalFirstCnt":1866825,"totalSecondCnt":1778207,"totalThirdCnt":32036},{"accumulatedFirstCnt":1151178,"accumulatedSecondCnt":1095510,"accumulatedThirdCnt":21223,"baseDate":"2021-11-13 00:00:00","firstCnt":2050,"id":4457,"secondCnt":3878,"sido":"대전광역시","thirdCnt":3545,"totalFirstCnt":1153228,"totalSecondCnt":1099388,"totalThirdCnt":24768},{"accumulatedFirstCnt":2380413,"accumulatedSecondCnt":2265559,"accumulatedThirdCnt":45906,"baseDate":"2021-11-13 00:00:00","firstCnt":4738,"id":4458,"secondCnt":8414,"sido":"인천광역시","thirdCnt":8479,"totalFirstCnt":2385151,"totalSecondCnt":2273973,"totalThirdCnt":54385},{"accumulatedFirstCnt":1163555,"accumulatedSecondCnt":1100722,"accumulatedThirdCnt":22877,"baseDate":"2021-11-13 00:00:00","firstCnt":2713,"id":4459,"secondCnt":4953,"sido":"광주광역시","thirdCnt":4311,"totalFirstCnt":1166268,"totalSecondCnt":1105675,"totalThirdCnt":27188},{"accumulatedFirstCnt":893489,"accumulatedSecondCnt":851263,"accumulatedThirdCnt":17072,"baseDate":"2021-11-13 00:00:00","firstCnt":1511,"id":4460,"secondCnt":3201,"sido":"울산광역시","thirdCnt":2431,"totalFirstCnt":895000,"totalSecondCnt":854464,"totalThirdCnt":19503},{"accumulatedFirstCnt":10938669,"accumulatedSecondCnt":10408863,"accumulatedThirdCnt":210503,"baseDate":"2021-11-13 00:00:00","firstCnt":21857,"id":4461,"secondCnt":38649,"sido":"경기도","thirdCnt":38755,"totalFirstCnt":10960526,"totalSecondCnt":10447512,"totalThirdCnt":249258},{"accumulatedFirstCnt":266321,"accumulatedSecondCnt":252823,"accumulatedThirdCnt":7196,"baseDate":"2021-11-13 00:00:00","firstCnt":433,"id":4462,"secondCnt":850,"sido":"세종특별자치시","thirdCnt":1115,"totalFirstCnt":266754,"totalSecondCnt":253673,"totalThirdCnt":8311},{"accumulatedFirstCnt":1255228,"accumulatedSecondCnt":1199331,"accumulatedThirdCnt":27809,"baseDate":"2021-11-13 00:00:00","firstCnt":2388,"id":4463,"secondCnt":4634,"sido":"강원도","thirdCnt":3710,"totalFirstCnt":1257616,"totalSecondCnt":1203965,"totalThirdCnt":31519},{"accumulatedFirstCnt":1327457,"accumulatedSecondCnt":1262241,"accumulatedThirdCnt":30106,"baseDate":"2021-11-13 00:00:00","firstCnt":2571,"id":4464,"secondCnt":4525,"sido":"충청북도","thirdCnt":4019,"totalFirstCnt":1330028,"totalSecondCnt":1266766,"totalThirdCnt":34125},{"accumulatedFirstCnt":1751971,"accumulatedSecondCnt":1667575,"accumulatedThirdCnt":44034,"baseDate":"2021-11-13 00:00:00","firstCnt":3415,"id":4465,"secondCnt":6992,"sido":"충청남도","thirdCnt":6554,"totalFirstCnt":1755386,"totalSecondCnt":1674567,"totalThirdCnt":50588},{"accumulatedFirstCnt":1484410,"accumulatedSecondCnt":1412365,"accumulatedThirdCnt":32543,"baseDate":"2021-11-13 00:00:00","firstCnt":3407,"id":4466,"secondCnt":5402,"sido":"전라북도","thirdCnt":5786,"totalFirstCnt":1487817,"totalSecondCnt":1417767,"totalThirdCnt":38329},{"accumulatedFirstCnt":1546146,"accumulatedSecondCnt":1473788,"accumulatedThirdCnt":41872,"baseDate":"2021-11-13 00:00:00","firstCnt":3139,"id":4467,"secondCnt":4894,"sido":"전라남도","thirdCnt":6661,"totalFirstCnt":1549285,"totalSecondCnt":1478682,"totalThirdCnt":48533},{"accumulatedFirstCnt":2121936,"accumulatedSecondCnt":2019166,"accumulatedThirdCnt":39010,"baseDate":"2021-11-13 00:00:00","firstCnt":3746,"id":4468,"secondCnt":8354,"sido":"경상북도","thirdCnt":6104,"totalFirstCnt":2125682,"totalSecondCnt":2027520,"totalThirdCnt":45114},{"accumulatedFirstCnt":2661819,"accumulatedSecondCnt":2533288,"accumulatedThirdCnt":54680,"baseDate":"2021-11-13 00:00:00","firstCnt":4799,"id":4469,"secondCnt":10132,"sido":"경상남도","thirdCnt":9889,"totalFirstCnt":2666618,"totalSecondCnt":2543420,"totalThirdCnt":64569},{"accumulatedFirstCnt":537509,"accumulatedSecondCnt":508969,"accumulatedThirdCnt":11727,"baseDate":"2021-11-13 00:00:00","firstCnt":1258,"id":4470,"secondCnt":2254,"sido":"제주특별자치도","thirdCnt":1537,"totalFirstCnt":538767,"totalSecondCnt":511223,"totalThirdCnt":13264}],"matchCount":36,"page":1,"perPage":18,"totalCount":4488}
+[[전국, 78120, 148147, 41826486, 39849263, 2021-11-13 00:00:00], [서울특별시, 12490, 24597, 7804300, 7471369, 2021-11-13 00:00:00], [부산광역시, 4450, 9538, 2678415, 2555104, 2021-11-13 00:00:00], [대구광역시, 3155, 6880, 1863670, 1771327, 2021-11-13 00:00:00], [대전광역시, 2050, 3878, 1151178, 1095510, 2021-11-13 00:00:00], [인천광역시, 4738, 8414, 2380413, 2265559, 2021-11-13 00:00:00], [광주광역시, 2713, 4953, 1163555, 1100722, 2021-11-13 00:00:00], [울산광역시, 1511, 3201, 893489, 851263, 2021-11-13 00:00:00], [경기도, 21857, 38649, 10938669, 10408863, 2021-11-13 00:00:00], [세종특별자치시, 433, 850, 266321, 252823, 2021-11-13 00:00:00], [강원도, 2388, 4634, 1255228, 1199331, 2021-11-13 00:00:00], [충청북도, 2571, 4525, 1327457, 1262241, 2021-11-13 00:00:00], [충청남도, 3415, 6992, 1751971, 1667575, 2021-11-13 00:00:00], [전라북도, 3407, 5402, 1484410, 1412365, 2021-11-13 00:00:00], [전라남도, 3139, 4894, 1546146, 1473788, 2021-11-13 00:00:00], [경상북도, 3746, 8354, 2121936, 2019166, 2021-11-13 00:00:00], [경상남도, 4799, 10132, 2661819, 2533288, 2021-11-13 00:00:00], [제주특별자치도, 1258, 2254, 537509, 508969, 2021-11-13 00:00:00]]
+VaccineStatics:[[전국, 78120, 148147, 41826486, 39849263, 2021-11-13 00:00:00], [서울특별시, 12490, 24597, 7804300, 7471369, 2021-11-13 00:00:00], [부산광역시, 4450, 9538, 2678415, 2555104, 2021-11-13 00:00:00], [대구광역시, 3155, 6880, 1863670, 1771327, 2021-11-13 00:00:00], [대전광역시, 2050, 3878, 1151178, 1095510, 2021-11-13 00:00:00], [인천광역시, 4738, 8414, 2380413, 2265559, 2021-11-13 00:00:00], [광주광역시, 2713, 4953, 1163555, 1100722, 2021-11-13 00:00:00], [울산광역시, 1511, 3201, 893489, 851263, 2021-11-13 00:00:00], [경기도, 21857, 38649, 10938669, 10408863, 2021-11-13 00:00:00], [세종특별자치시, 433, 850, 266321, 252823, 2021-11-13 00:00:00], [강원도, 2388, 4634, 1255228, 1199331, 2021-11-13 00:00:00], [충청북도, 2571, 4525, 1327457, 1262241, 2021-11-13 00:00:00], [충청남도, 3415, 6992, 1751971, 1667575, 2021-11-13 00:00:00], [전라북도, 3407, 5402, 1484410, 1412365, 2021-11-13 00:00:00], [전라남도, 3139, 4894, 1546146, 1473788, 2021-11-13 00:00:00], [경상북도, 3746, 8354, 2121936, 2019166, 2021-11-13 00:00:00], [경상남도, 4799, 10132, 2661819, 2533288, 2021-11-13 00:00:00], [제주특별자치도, 1258, 2254, 537509, 508969, 2021-11-13 00:00:00]]
+MenuActionList:[MenuVo [menu_id=MENU03, menu_name=라떼, menu_seq=3], MenuVo [menu_id=MENU04, menu_name=배추김치, menu_seq=4]]
+ 
+ 코로나 개인정보 회원정보 추가
+toptopnav.jsp-->MBoard(servlet)[COVIDINFOFORM] --> Action --> ActionFactory -->CovidInfoFormAction.java -->
+covidinfo.jsp()--> MBoard(servlet)[COVIDINFO]--> Action --> ActionFactory
+-->CovidInfoAction.java --> CovidinfoDao.java
+
+MBoard write 참조
+입력창은 prj money 참조 
+
+
+ 코로나 개인정보 목록
+ 
+ 코로나 개인정보 수정
+ 
+ 코로나 개인정보 삭제
+
+ 
+ 코로나 로그인
+ 
